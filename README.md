@@ -47,9 +47,7 @@ The Preliminary Talk slides outline different scenarios and recommended ways to 
 
 - To **contact our tutors**, create a GitLab Issue and add one of the following Git handles into your issue description text. The subsequently listed tutor(s) are available: 
 
-   - `Robert Sama (Git handle @roberts95)`
-   - `Samuel Mitterrutzner (Git handle @samuelm00)`
-   - `Francesco Urdih (Git handle @francescou23)`
+   - `Mariam Martirosyan (Git handle @mariamm98)`
 
 **If nobody responds**: If you want to contact a tutor or supervisor, **always use their Git handles in your issues description text**. Such that the respective person is notified about your inquiry by GitLab. To repeat: Do not assign a Git issue. We are only notified if you add the Git handle directly into the description text. **Do not use** @all as this would inform all supervisors, including those irrelevant to you (your inquery, resp.).
 
