@@ -1,0 +1,17 @@
+@startuml
+actor ProductOwner
+participant "Backlog System" as BacklogSystem
+participant "Backlog Management Component" as BacklogComponent
+database "Backlog Database" as BacklogDB
+
+ProductOwner -> BacklogSystem : Open Backlog System
+BacklogSystem -> ProductOwner : Show 'Add Backlog Item' option
+
+ProductOwner -> BacklogSystem : Enter backlog item details
+BacklogSystem -> BacklogComponent : validateAndCreateItem(details)
+BacklogComponent -> BacklogDB : save(newBacklogItem)
+BacklogDB --> BacklogComponent : confirmation
+BacklogComponent --> BacklogSystem : success response
+
+BacklogSystem -> ProductOwner : Show confirmation message
+@enduml

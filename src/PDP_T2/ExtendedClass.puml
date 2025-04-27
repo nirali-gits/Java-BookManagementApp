@@ -1,0 +1,62 @@
+@startuml
+
+' Existing model
+class Backlog {
+  id: UUID
+  name: string
+  description: string
+
+  +addBacklogItem(item: BacklogItem)
+  +updateBacklogItem(itemId: UUID, updatedItem: BacklogItem)
+  +viewBacklogItem(itemId: UUID): BacklogItem
+}
+
+class BacklogItem {
+  status: string
+  story: string
+  storyPoints: int
+  summary: string
+  type: string
+
+  +assignToProduct(productId: string)
+  +assignToRelease(releaseId: string)
+  +assignToSprint(sprintId: string)
+  +viewRelatedReleaseItems(): List<ReleaseID>
+}
+
+class Task {
+  name: string
+  id: string
+  description: string
+  hoursRemaining: int
+  volunteer: string
+}
+
+class EstimationLogEntry {
+  name: string
+  description: string
+  hoursRemaining: int
+  volunteer: string
+}
+
+class ProductID {
+  id: string
+}
+
+class ReleaseID {
+  id: string
+}
+
+class SprintID {
+  id: string
+}
+
+' Relationships
+Backlog "1" o-- "*" BacklogItem : backlogItems
+BacklogItem "1" --> "1" ProductID : productID
+BacklogItem "1" --> "1" ReleaseID : releaseID
+BacklogItem "1" --> "1" SprintID : sprintID
+BacklogItem "1" o-- "*" Task : tasks
+Task "1" o-- "*" EstimationLogEntry : estimationLogEntries
+
+@enduml

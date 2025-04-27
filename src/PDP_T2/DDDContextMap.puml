@@ -1,0 +1,28 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<Backlog>> LightYellow
+    BackgroundColor<<Product>> LightBlue
+    BackgroundColor<<Release>> LightGreen
+    BackgroundColor<<Sprint>> LightPink
+}
+
+rectangle "Backlog Management Context" <<Backlog>> {
+    [Backlog System]
+}
+
+rectangle "Product Management Context" <<Product>> {
+    [Product Service]
+}
+
+rectangle "Release Management Context" <<Release>> {
+    [Release Service]
+}
+
+rectangle "Sprint Management Context" <<Sprint>> {
+    [Sprint Service]
+}
+
+[Backlog System] --> [Product Service] : REST API\n(Customer/Supplier)
+[Backlog System] --> [Release Service] : REST API\n(Customer/Supplier)
+[Backlog System] --> [Sprint Service] : REST API\n(Customer/Supplier)
+@enduml
