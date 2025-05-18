@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: body (~{::body})">
+<head><title>Book Form</title></head>
+<body>
+<h1 th:text="${book.id == null} ? 'Add Book' : 'Edit Book'"></h1>
+<form th:action="@{/books}" th:object="${book}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label>Title:</label>
+    <input type="text" th:field="*{title}" required/><br/>
+
+    <label>Author:</label>
+    <input type="text" th:field="*{author}" required/><br/>
+
+    <label>Genre:</label>
+    <select th:field="*{genre}">
+        <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}"></option>
+    </select><br/>
+
+    <label>Publisher:</label>
+    <select th:field="*{publisher}">
+        <option th:each="publisher : ${publishers}" th:value="${publisher.id}" th:text="${publisher.name}"></option>
+    </select><br/>
+
+    <button type="submit">Save</button>
+</form>
+<a th:href="@{/books}">Back to List</a>
+</body>
+</html>

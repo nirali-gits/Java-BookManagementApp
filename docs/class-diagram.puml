@@ -1,0 +1,84 @@
+@startuml class_model
+
+' Group packages by architecture layer
+package "com.example.bookmanagement.model" <<Layer>> {
+  class Book {
+    - Long id
+    - String title
+    - String author
+    --
+    + getId()
+    + getTitle()
+    + getAuthor()
+    + getGenre()
+    + getPublisher()
+  }
+
+  class Genre {
+    - Long id
+    - String name
+    --
+    + getId()
+    + getName()
+  }
+
+  class Publisher {
+    - Long id
+    - String name
+    - String address
+    --
+    + getId()
+    + getName()
+    + getAddress()
+  }
+
+  Book --> Genre
+  Book --> Publisher
+}
+
+package "com.example.bookmanagement.repository" <<Layer>> {
+  interface BookRepository
+  interface GenreRepository
+  interface PublisherRepository
+
+  BookRepository --> Book
+  GenreRepository --> Genre
+  PublisherRepository --> Publisher
+}
+
+package "com.example.bookmanagement.service" <<Layer>> {
+  class BookService <<Service>> {
+    + findAll()
+    + findById(Long)
+    + save(Book)
+    + deleteById(Long)
+  }
+  class GenreService <<Service>> {
+    + findAll()
+    + findById(Long)
+    + save(Genre)
+    + deleteById(Long)
+  }
+  class PublisherService <<Service>> {
+    + findAll()
+    + findById(Long)
+    + save(Publisher)
+    + deleteById(Long)
+  }
+
+  BookService --> BookRepository
+  GenreService --> GenreRepository
+  PublisherService --> PublisherRepository
+}
+
+package "com.example.bookmanagement.controller" <<Layer>> {
+  class BookController <<Controller>>
+  class GenreController <<Controller>>
+  class PublisherController <<Controller>>
+
+  BookController --> BookService
+  GenreController --> GenreService
+  PublisherController --> PublisherService
+}
+
+@enduml

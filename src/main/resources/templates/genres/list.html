@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: body (~{::body})">
+<head><title>Genres</title></head>
+<body>
+<h1>Genres</h1>
+<a th:href="@{/genres/new}">Add New Genre</a>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="genre : ${genres}">
+        <td th:text="${genre.name}"></td>
+        <td>
+            <a th:href="@{'/genres/edit/' + ${genre.id}}">Edit</a> |
+            <a th:href="@{'/genres/delete/' + ${genre.id}}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

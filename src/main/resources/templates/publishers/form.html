@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/header :: body (~{::body})">
+<head><title>Publisher Form</title></head>
+<body>
+<h1 th:text="${publisher.id == null} ? 'Add Publisher' : 'Edit Publisher'"></h1>
+<form th:action="@{/publishers}" th:object="${publisher}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" required/><br/>
+    <label>Address:</label>
+    <input type="text" th:field="*{address}" required/><br/>
+    <button type="submit">Save</button>
+</form>
+<a th:href="@{/publishers}">Back to List</a>
+</body>
+</html>
