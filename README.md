@@ -1,5 +1,7 @@
 [[_TOC_]]
 
+This project was created with assistance from AI tools, including ChatGPT as well.
+
 # What is GIT used for?
 
 Unless otherwise explicitly stated, your programming and design projects (PDP) deliverables are submitted via GitLab in this course. The last commit pushed before the deadline to the master branch on GitLab is decisive for the evaluation, grading, and feedback. You can also use this repository to prepare the presentation of attempts for bonus points and feedback. Push your current state to this repository before the presentation, and the built-in code highlighting makes it easy to navigate and check out your attempt right here in GitLab. Achieved points will be published using Moodle. The latter, i.e., Moodle, will also cover your **PDP** feedback.
